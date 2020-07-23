@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>计算器</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="css/layui.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/计算器.css">
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/base.js"></script>
+  <script type="text/javascript" src="js/controller/billController.js"></script>
+  <script type="text/javascript" src="js/service/billService.js"></script>
+  <script type="text/javascript" src="js/service/userService.js"></script>
+</head>
+<body ng-app="family" ng-controller="billController">
+  <div class="toolbar">
+    <div class="icon-warpper">
+      <img class="back-icon" src="img/返回.png" onclick="window.history.back(-1);">
+    </div>
+    <p class="icon-txt">计算器</p>
+  </div>
+  <div class="container">
+    <div class="calculate-result">
+    {{result}}
+    </div>
+    
+ 
+<!--加add()  -->
+    <div class="calculate-warpper">
+      <input class="calculate-txt" type="number" name="" ng-model="cal.pre">
+      <span class="calculate-symbol"> + </span>
+      <input class="calculate-txt" type="" name="" ng-model="cal.end">
+      <div class="calculate-btn" ng-click="add()">运算</div>
+    </div>
+
+<!--减reduce()  -->
+    <div class="calculate-warpper">
+      <input class="calculate-txt" type="number" name="" ng-model="cal.pre2">
+      <span class="calculate-symbol" style="margin: 0 1rem;"> - </span>
+      <input class="calculate-txt" type="" name="" ng-model="cal.end2">
+      <div class="calculate-btn" ng-click="reduce()">运算</div>
+    </div>
+
+<!--乘multiplication() -->
+    <div class="calculate-warpper">
+      <input class="calculate-txt" type="number" name="" ng-model="cal.pre3">
+      <span class="calculate-symbol"> × </span>
+      <input class="calculate-txt" type="" name="" ng-model="cal.end3">
+      <div class="calculate-btn" ng-click="multiplication()">运算</div>
+    </div>
+
+<!--除divide()  -->
+    <div class="calculate-warpper">
+      <input class="calculate-txt" type="number" name="" ng-model="cal.pre4">
+      <span class="calculate-symbol"> ÷ </span>
+      <input class="calculate-txt" type="" name="" ng-model="cal.end4">
+      <div class="calculate-btn" ng-click="divide()">运算</div>
+    </div>
+<!-- clear() -->
+    <div class="calculate-allclear" ng-click="clear()">
+      清空
+    </div>
+  </div>
+</body>
+
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="layui/layui.js"></script>
+<script src="layui/layui.all.js"></script>
+</html>

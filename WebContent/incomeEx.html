@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>收入支出界面</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/收入支出界面.css">
+    <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="js/base.js"></script>
+  <script type="text/javascript" src="js/controller/billController.js"></script>
+  <script type="text/javascript" src="js/service/billService.js"></script>
+   <script type="text/javascript" src="js/service/userService.js"></script>
+</head><!-- 页面加载调用方法 -->
+<body ng-app="family" ng-controller="billController" ng-init="selectAllBill();selectCount()">
+    <div class="toolbar">
+      <div class="icon-warpper">
+        <img class="back-icon" src="img/返回.png" onclick="window.history.back(-1);">
+      </div>
+      <p class="icon-txt">收入支出</p>
+    </div>
+    <div style="width:100%; margin-top:2rem;">
+      <div class="layui-form-item">
+        <label class="layui-form-label">起始时间</label>
+        <div class="layui-input-block">
+          <input type="date" class="layui-input" id="test1" style="width:16rem;" ng-model="entity.start">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">结束时间</label>
+        <div class="layui-input-block">
+          <input type="date" class="layui-input" id="test2" style="width:16rem;" ng-model="entity.end">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <button id='search' class="layui-btn" style="float: right; margin-right: 1rem;" ng-click="searchDate()">搜索</button>
+        <a class="layui-btn" href="piechart.html" lay-submit lay-filter="formDemo" style="float: right; margin-right: 1rem;">查看饼状图</a>
+      </div>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span>总收入：</span><span>{{count.total2}}</span>&nbsp;&nbsp;
+    <span>总支出：</span><span>{{count.total}}</span>
+    <div class="container">
+      <table class="layui-table">
+          <colgroup>
+            <col width="60">
+            <col width="100">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+            </tr>
+            <tr>
+              <th></th>
+              <th>收支类型</th>
+              <th>时间</th>
+              <th>金额</th>
+              <th>操作</th>
+            </tr> 
+          </thead>
+          <tbody>
+          <!-- 遍历list集合 -->
+            <tr ng-repeat="bill in list2">
+              <td>{{$index+1}}</td>
+              <td>{{bill.bDesc}}</td>
+              <td>{{bill.bDate}}</td>
+              <td style="color:red" ng-if="bill.bKinds==0"><span>-</span>{{bill.bMoney}}</td>
+              <td style="color:green" ng-if="bill.bKinds!=0"><span>+</span>{{bill.bMoney}}</td>
+              <td>
+              <!-- 删除方法 -->
+                <button class="layui-btn layui-btn-normal" ng-click="deleteBill(bill.bid)">删除</button>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  
+</body>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="layui/layui.js"></script>
+<script src="layui/layui.all.js"></script>
+<script type="text/javascript">
+$('#search').on('click', function(){
+  var layer = layui.layer;
+  layer.msg('搜索完毕')
+})
+</script>
+</html>

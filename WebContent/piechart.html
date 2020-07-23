@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收支饼状图</title>
+    <script src="js/echarts.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+    <meta name="author" content="Vincent Garreau" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/layui.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/个人中心.css">
+</head>
+<body>
+<div class="toolbar">
+  <div class="icon-warpper">
+    <img class="back-icon" src="img/返回.png">
+  </div>
+  <p class="icon-txt">收支饼状图</p>
+</div>
+<div id="main1" style="height: 500px;"></div>
+<div id="main2" style="height: 500px;"></div>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart1 = echarts.init(document.getElementById('main1'));
+    // 指定图表的配置项和数据
+    var option = {
+    title : {
+        text: '收入饼状图',
+        subtext: '纯属虚构',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['存款','基金','股票','期货','转账']
+    },
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:335, name:'存款'},
+                {value:10, name:'基金'},
+                {value:234, name:'股票'},
+                {value:80, name:'期货'},
+                {value:55, name:'年货'},
+                {value:266, name:'转账'}
+
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+    // 使用刚指定的配置项和数据显示图表。
+    myChart1.setOption(option);
+    
+	 // 异步加载数据
+    $.ajax ({
+    	type: "GET",    	
+    	url:"bill/selectBing.do",
+    	success:function(response){
+    		// 填入数据
+            myChart1.setOption({
+            	series: {
+                    data: response
+                }
+            });
+    	}
+    })
+    
+        
+
+   
+</script>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main2'));
+    // 指定图表的配置项和数据
+    var option = {
+    title : {
+        text: '支出饼状图',
+        subtext: '纯属虚构',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['吃饭','教育','购物','转账','交通']
+    },
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:335, name:'吃饭'},
+                {value:310, name:'教育'},
+                {value:234, name:'购物'},
+                {value:135, name:'转账'},
+                {value:266, name:'交通'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+ // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    
+	 // 异步加载数据
+    $.ajax ({
+    	type: "GET",    	
+    	url:"bill/selectBing1.do",
+    	success:function(response){
+    		// 填入数据
+            myChart.setOption({
+            	series: {
+                    data: response
+                }
+            });
+    	}
+    })
+</script>
+</body>
+</html>

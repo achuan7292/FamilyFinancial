@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>资讯界面</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="css/layui.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/资讯界面.css">
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/base.js"></script>
+  <script type="text/javascript" src="js/controller/billController.js"></script>
+  <script type="text/javascript" src="js/service/billService.js"></script>
+  <script type="text/javascript" src="js/service/userService.js"></script>
+  <style type="text/css">
+    .new-title{
+      width: 100%;
+      height: 3rem;
+      line-height: 3rem;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .new-img{
+      width: 96%;
+      margin: 0 2%;
+      border-radius: .55rem;
+    }
+    .new-content{
+      width: 96%;
+      height: 15rem;
+      margin: 1rem 2%;
+    }
+  </style>
+</head>
+<body ng-app="family" ng-controller="billController" ng-init="selectAdById()">
+  <div class="toolbar">
+    <div class="icon-warpper">
+      <img class="back-icon" src="img/返回.png" onclick="window.history.back(-1);">
+    </div>
+    <p class="icon-txt">资讯界面</p>
+  </div>
+  <div class="container">
+    <div class="new-title">{{advisory.headline}}</div>
+    <img class="new-img" src="advisory/{{advisory.pic}}">
+    <div class="new-content">{{advisory.cdesc}}</div>
+  </div>
+</body>
+
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="layui/layui.js"></script>
+<script src="layui/layui.all.js"></script>
+</html>

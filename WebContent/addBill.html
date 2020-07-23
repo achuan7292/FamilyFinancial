@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>添加账单</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="css/layui.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/添加账单.css">
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="js/base.js"></script>
+  <script type="text/javascript" src="js/controller/billController.js"></script>
+  <script type="text/javascript" src="js/service/billService.js"></script>
+  <script type="text/javascript" src="js/service/userService.js"></script>
+</head>
+<body ng-app="family" ng-controller="billController">
+    <div class="toolbar">
+      <div class="icon-warpper">
+        <img class="back-icon" src="img/返回.png" onclick="window.history.back(-1);">
+      </div>
+      <p class="icon-txt">添加账单</p>
+    </div>
+      <form class="layui-form">
+        <div class="layui-form-item">
+          <label class="layui-form-label">账目类型</label>
+          <div class="layui-input-block" style="width: 20rem;">
+           <label>
+            <!-- 选择账单类型 -->
+            <!-- input选项 -->
+              <input type="radio" ng-model="bill.bKinds" name="sex" value="1" title="收入" >
+            </label>
+            <label>
+            
+              <input type="radio" ng-model="bill.bKinds" name="sex" value="0" title="支出" >
+            </label>
+          </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+          <label class="layui-form-label">描述</label>
+          <div class="layui-input-block">
+            <textarea ng-model="bill.bDesc" name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">日期</label>
+          <div class="layui-input-block">
+             <input type="date" ng-model="bill.bDate" class="layui-input" id="test1" style="width:17rem;">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">金额</label>
+          <div class="layui-input-block">
+            <input id="test1" type="text" ng-model="bill.bMoney" name="title" required  lay-verify="required" placeholder="请输入金额" autocomplete="off" class="layui-input">
+          </div>
+        </div><br><br>
+        <!-- addBill方法 -->
+        <button class="layui-btn" ng-click="addBill()"
+        style=" position: absolute;
+                left: 50%;
+                width: 10rem;
+                margin-left: -3rem;"
+        >
+          确认添加
+        </button>
+      </form>
+</body>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="layui/layui.js"></script>
+<script src="layui/layui.all.js"></script>
+<!-- <script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script> -->
+</html>

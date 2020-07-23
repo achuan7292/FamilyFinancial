@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="js/base.js"></script>
+  <script type="text/javascript" src="js/controller/billController.js"></script>
+  <script type="text/javascript" src="js/service/billService.js"></script>
+   <script type="text/javascript" src="js/service/userService.js"></script>
+</head>
+<body ng-app="family" ng-controller="billController">
+	<select ng-init="selectAllCard()">
+		  <option value="0" ng-repeat="card in list">{{card.cnumber}}</option>
+	</select>
+</body>
+</html>

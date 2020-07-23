@@ -1,0 +1,68 @@
+app.controller('userController',function($scope,$controller,$http,userService){
+	$scope.findUser=function(){
+		userService.findUser().success(
+			function(response){
+				$scope.user=response;
+			}
+		);
+	}
+	$scope.findMe=function(){
+		userService.findMe($scope.user).success(
+				function(response){
+					$scope.message=response;
+					if($scope.message.success){
+						alert("登陆成功");
+						window.setTimeOut(location.href="../FamilyFinancial/index.html",3000);
+					}
+					else{
+						alert("用户名或者密码错误");
+					}
+				}
+		);
+	}
+	
+	$scope.addUser=function(){
+		if(document.getElementById("test1").value==document.getElementById("test2").value){
+			userService.addUser($scope.user).success(
+					function(response){
+						$scope.message=response;
+						if($scope.message.success){
+							alert($scope.message.message+",3秒后跳转到登陆页面");
+							window.setTimeOut(location.href="../FamilyFinancial/login.html",3000);
+						}else{
+							alert($scope.message.message+",3秒后跳转到注册页面");
+							window.setTimeOut(location.href="../FamilyFinancial/register.html",3000);
+						}
+					}	
+			);
+		}else{
+			alert("密码不一致")
+		}
+		
+	}
+	//更新用户
+	$scope.updateUserInfo=function(){
+		userService.updateUserInfo($scope.entity).success(
+				function(response){
+					$scope.message=response;
+					alert($scope.message.message);
+					window.setTimeOut(location.href="../FamilyFinancial/login.html",3000);
+				}	
+		);
+		
+	}
+	//更新密码
+	$scope.updatePassword=function(){
+		if(document.getElementById("test1").value==document.getElementById("test2").value){
+			userService.updatePassword($scope.user).success(
+					function(response){
+						$scope.message=response;
+						alert($scope.message.message);
+					}	
+			);
+		}else{
+			alert("密码不一致")
+		}
+		
+	}
+});

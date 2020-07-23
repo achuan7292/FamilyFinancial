@@ -1,0 +1,84 @@
+body{
+  font-size: 1.3rem;
+}
+.toolbar{
+  position: relative;
+  width: 100%;
+  height: 44px;
+  background-image:linear-gradient(to right,#01AAED,#1E9FFF);
+  }
+.icon-warpper{
+  position: absolute;
+  display: flex;
+  width: 26px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+}
+.icon-txt{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1rem;
+  margin-left: -3rem;
+  width: 6rem;
+  height: 2rem;
+  color: #fff;
+}
+.back-icon{
+  display: inline-block;
+  width: 100%;
+  margin-left: 1rem;
+}
+.calculate-result{
+  width: 100%;
+  height: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  color: #1E9FFF;
+  text-align: center;
+}
+.calculate-warpper{
+  margin: 1.4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calculate-txt{
+  width: 10rem;
+  height: 3rem;
+  color: #999;
+  font-size: 1.6rem;
+  text-align: center;
+  border: 1px solid #999;
+}
+.calculate-btn{
+  display: inline-block;
+}
+.calculate-symbol{
+  font-size: 2.5rem;
+  color: #1E9FFF;
+  margin: 0 .8rem;
+}
+.calculate-btn{
+  margin-left: 1.2rem;
+  width: 7rem;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  background-color: #1E9FFF;
+}
+.calculate-allclear{
+  width: 94%;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  margin: 0 auto;
+  color: #FFFFFF;
+  background-color: #1E9FFF;
+}

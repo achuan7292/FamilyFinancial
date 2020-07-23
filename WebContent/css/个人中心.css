@@ -1,0 +1,82 @@
+body{
+  font-size: 1.3rem;
+}
+.toolbar{
+      position: relative;
+      width: 100%;
+      height: 44px;
+      background-image:linear-gradient(to right,#01AAED,#1E9FFF);
+    }
+    .icon-warpper{
+      position: absolute;
+      display: flex;
+      width: 26px;
+      height: 44px;
+      justify-content: center;
+      align-items: center;
+    }
+    .icon-txt{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -1rem;
+      margin-left: -3rem;
+      width: 8rem;
+      height: 2rem;
+      color: #fff;
+    }
+    .back-icon{
+      display: inline-block;
+      width: 100%;
+      margin-left: 1rem;
+    }
+    .layui-form-label{
+      width: 80px;
+    }
+    .layui-form-mid,.layui-word-aux{
+      color: #000 !important;
+    }
+    .title {
+      margin-top: 8rem;
+      margin-left: 1rem;
+      font-size: 35px;
+      font-weight: bold;
+    }
+    .font-weight {
+      font-weight: bold;
+      font-size: 15px ;
+    }
+    .layui-form{
+      position: absolute;
+      left: 50%;
+      width: 26rem;
+      margin-top: 8rem;
+      margin-left: -13rem;
+    }
+    .layui-btn {
+      display: inline-block;
+      height: 38px;
+      line-height: 38px;
+      padding: 0 18px;
+      background-color: #1E9FFF;
+      color: #fff;
+      white-space: nowrap;
+      text-align: center;
+      font-size: 14px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .btn-add{
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      margin-top: -17.5px;
+      width: 43px;
+      height: 35px;
+      color: #fff;
+      line-height: 35px;
+    }

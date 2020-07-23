@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>还款页面</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="css/layui.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/还款页面.css">
+  <style type="text/css">
+  	.mySele{
+		width: 202px;
+		height: 38px;
+	}
+  </style>
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="js/base.js"></script>
+  <script type="text/javascript" src="js/controller/billController.js"></script>
+  <script type="text/javascript" src="js/service/billService.js"></script>
+   <script type="text/javascript" src="js/service/userService.js"></script>
+</head>
+<body ng-app="family" ng-controller="billController">
+    <div class="toolbar">
+      <div class="icon-warpper">
+        <img class="back-icon" src="img/返回.png" onclick="window.history.back(-1);" >
+      </div>
+      <p class="icon-txt">还款页面</p>
+    </div>
+    <div class="container">
+        <form>
+          <div class="layui-form-item">
+            <label class="layui-form-label">还款类型</label>
+            <div class="layui-input-block">
+              <input type="text" name="title" required ng-model="bill.bDesc" lay-verify="required" placeholder="请输入还款类型" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">还款账户</label>
+            <!-- 之前讲过的初始化方法selectAllCard() -->
+            <div class="layui-input-block" ng-init="selectAllCard()" >
+              <select name="city" lay-verify="required" ng-model="bill.bNumber" class="mySele">
+                <option value=""></option>
+                <!-- 下拉选项 -->
+                <option value="{{card.cnumber}}" ng-repeat="card in list" >{{card.cnumber}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">还款日期</label>
+            <div class="layui-input-block">
+              <input type="date" name="title" required  ng-model="bill.bDate" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">还款金额</label>
+            <div class="layui-input-block">
+              <input type="number" name="title" required  ng-model="bill.bMoney" lay-verify="required" placeholder="请输入金额" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item"  style="margin-top:3.5rem; text-align: center">
+              <button class="layui-btn" ng-click="setBill(0);addBill()" style="margin:0 auto;">立即还款</button>
+          </div>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/layui.js"></script>
+<script src="js/layui.all.js"></script>
+<script type="text/javascript"></script>
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script>
+</html>

@@ -1,0 +1,105 @@
+body{
+  font-size:1.3rem;
+}
+.toolbar{
+  position: relative;
+  width: 100%;
+  height: 44px;
+  background-image:linear-gradient(to right,#01AAED,#1E9FFF);
+}
+.icon-warpper{
+  position: absolute;
+  display: flex;
+  width: 26px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+}
+.icon-txt{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1rem;
+  margin-left: -3rem;
+  width: 6rem;
+  height: 2rem;
+  color: #fff;
+}
+.back-icon{
+  display: inline-block;
+  width: 100%;
+  margin-left: 1rem;
+}
+.layui-form-label{
+  width: 80px;
+}
+.layui-form-mid,.layui-word-aux{
+  color: #000 !important;
+}
+.title{
+  margin-top: 8rem;
+  margin-left: 1rem;
+  font-size: 35px;
+  font-weight: bold;
+}
+.font-weight{
+  font-weight: bold;
+  font-size: 15px ;
+}
+.container{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  margin-left: -14rem;
+  width: 28rem;
+}
+.layui-btn{
+  display: inline-block;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 18px;
+  background-color: #1E9FFF;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.layui-btn-primary{
+  background-color: #FFF;
+  color: #1E9FFF;
+  border: 1px solid #1E9FFF;
+}
+.layui-form-mid,.layui-word-aux{
+  display: none;
+  font-size: 12px;
+  color: #1E9FFF !important;
+}
+.layui-form-select dl dd.layui-this {
+  background-color: #1E9FFF;
+  color: #fff;
+}
+.layui-input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-add{
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  margin-top: -17.5px;
+  width: 43px;
+  height: 35px;
+  color: #fff;
+  line-height: 35px;
+}
+.layui-btn,.layui-btn-norma{
+  margin-left: 1.7rem;
+}

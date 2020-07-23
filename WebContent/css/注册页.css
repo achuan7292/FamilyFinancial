@@ -1,0 +1,70 @@
+body{
+  font-size: 1.3rem;
+}
+.layui-form-label{
+  width: 80px;
+}
+.layui-form-mid,.layui-word-aux{
+  color: #000 !important;
+}
+.title{
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+.font-weight{
+  font-weight: bold;
+  font-size: 15px;
+}
+.container{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 25rem;
+  left: 50%;
+  margin-left: -10.5rem;
+  width: 24rem;
+}
+.layui-btn{
+  display: inline-block;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 18px;
+  background-color: #1E9FFF;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.layui-btn-primary{
+  background-color: #FFF;
+  color: #1E9FFF;
+  border: 1px solid #1E9FFF;
+}
+.layui-form-mid,.layui-word-aux{
+  display: none;
+  font-size: 12px;
+  color: #1E9FFF !important;
+}
+.layui-form{
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: 26rem;
+  margin-left: -16rem;
+}
+.btn-group{
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

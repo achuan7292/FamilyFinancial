@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>登录</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="css/layui.css">
+  <link rel="stylesheet" type="text/css" href="css/登录页.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/base.js"></script>
+  <script type="text/javascript" src="js/controller/userController.js"></script>
+  <script type="text/javascript" src="js/service/userService.js"></script>
+</head>
+<body ng-app="family" ng-controller="userController">
+    <p class="title">请登录您的账号</p>
+    <div class="container">
+        <form class="layui-form" action="/FamilyFinancial/login" method="post">
+          <div class="layui-form-item" style="margin-left:-2.8rem;">
+            <label class="layui-form-label font-weight">用户名</label>
+            <div class="layui-input-block">
+              <input type="text" name="username" required  lay-verify="required" ng-model="user.username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item" style="margin-left:-2.8rem;">
+            <label class="layui-form-label font-weight">密码</label>
+            <div class="layui-input-inline">
+              <input type="password" name="password" ng-model="user.password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-input-block" style="margin: 0;margin-top:3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;">
+            <button class="layui-anim layui-anim-up layui-btn">登录账号</button>
+
+            <a class="layui-anim layui-anim-up layui-btn layui-btn-primary" href="register.html">注册</a>
+          </div>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/layui.js"></script>
+<script src="js/layui.all.js"></script>
+</html>

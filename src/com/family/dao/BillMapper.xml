@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.family.dao.BillMapper" >
+  <resultMap id="BaseResultMap" type="com.family.domain.Bill" >
+    <id column="bid" property="bid" jdbcType="INTEGER" />
+    <result column="b_kinds" property="bKinds" jdbcType="INTEGER" />
+    <result column="b_desc" property="bDesc" jdbcType="VARCHAR" />
+    <result column="b_date" property="bDate" jdbcType="DATE" />
+    <result column="b_money" property="bMoney" jdbcType="DOUBLE" />
+    <result column="uid" property="uid" jdbcType="VARCHAR" />
+    <result column="b_number" property="bNumber" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    bid, b_kinds, b_desc, b_date, b_money, uid, b_number
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.family.domain.BillExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from bill
+    where bid = #{bid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from bill
+    where bid = #{bid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.family.domain.BillExample" >
+    delete from bill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.family.domain.Bill" >
+    insert into bill (bid, b_kinds, b_desc, 
+      b_date, b_money, uid, b_number
+      )
+    values (#{bid,jdbcType=INTEGER}, #{bKinds,jdbcType=INTEGER}, #{bDesc,jdbcType=VARCHAR}, 
+      #{bDate,jdbcType=DATE}, #{bMoney,jdbcType=DOUBLE}, #{uid,jdbcType=VARCHAR}, #{bNumber,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.family.domain.Bill" >
+    insert into bill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        bid,
+      </if>
+      <if test="bKinds != null" >
+        b_kinds,
+      </if>
+      <if test="bDesc != null" >
+        b_desc,
+      </if>
+      <if test="bDate != null" >
+        b_date,
+      </if>
+      <if test="bMoney != null" >
+        b_money,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="bNumber != null" >
+        b_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="bKinds != null" >
+        #{bKinds,jdbcType=INTEGER},
+      </if>
+      <if test="bDesc != null" >
+        #{bDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="bDate != null" >
+        #{bDate,jdbcType=DATE},
+      </if>
+      <if test="bMoney != null" >
+        #{bMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="bNumber != null" >
+        #{bNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.family.domain.BillExample" resultType="Double" >
+    select sum(b_money) from bill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bill
+    <set >
+      <if test="record.bid != null" >
+        bid = #{record.bid,jdbcType=INTEGER},
+      </if>
+      <if test="record.bKinds != null" >
+        b_kinds = #{record.bKinds,jdbcType=INTEGER},
+      </if>
+      <if test="record.bDesc != null" >
+        b_desc = #{record.bDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bDate != null" >
+        b_date = #{record.bDate,jdbcType=DATE},
+      </if>
+      <if test="record.bMoney != null" >
+        b_money = #{record.bMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.uid != null" >
+        uid = #{record.uid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bNumber != null" >
+        b_number = #{record.bNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bill
+    set bid = #{record.bid,jdbcType=INTEGER},
+      b_kinds = #{record.bKinds,jdbcType=INTEGER},
+      b_desc = #{record.bDesc,jdbcType=VARCHAR},
+      b_date = #{record.bDate,jdbcType=DATE},
+      b_money = #{record.bMoney,jdbcType=DOUBLE},
+      uid = #{record.uid,jdbcType=VARCHAR},
+      b_number = #{record.bNumber,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.family.domain.Bill" >
+    update bill
+    <set >
+      <if test="bKinds != null" >
+        b_kinds = #{bKinds,jdbcType=INTEGER},
+      </if>
+      <if test="bDesc != null" >
+        b_desc = #{bDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="bDate != null" >
+        b_date = #{bDate,jdbcType=DATE},
+      </if>
+      <if test="bMoney != null" >
+        b_money = #{bMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="bNumber != null" >
+        b_number = #{bNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bid = #{bid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.family.domain.Bill" >
+    update bill
+    set b_kinds = #{bKinds,jdbcType=INTEGER},
+      b_desc = #{bDesc,jdbcType=VARCHAR},
+      b_date = #{bDate,jdbcType=DATE},
+      b_money = #{bMoney,jdbcType=DOUBLE},
+      uid = #{uid,jdbcType=VARCHAR},
+      b_number = #{bNumber,jdbcType=VARCHAR}
+    where bid = #{bid,jdbcType=INTEGER}
+  </update>
+</mapper>

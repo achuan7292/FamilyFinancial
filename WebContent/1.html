@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>radio的绑定</title>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<style>
+
+</style>
+</head>
+
+<body ng-app="app">
+<div ng-controller="appCon">
+<form ng-submit="ok()">
+<label>
+    <input type="radio" ng-model="sex" value="male">
+    <span>男</span>
+</label>
+<label>
+    <input type="radio" ng-model="sex" value="female">
+    <span>女</span>
+</label>
+{{sex}}
+</form>
+</div>
+
+<script>
+
+var app = angular.module('app', []);
+
+app.controller('appCon', function($scope) {
+
+$scope.ok = function(){
+console.dir($scope.c);
+}
+});
+</script>
+</body>
+
+</html> 
